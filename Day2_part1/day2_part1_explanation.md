@@ -4,7 +4,7 @@
 Store the data in `data.txt`.  
 In the `getTestDataFrmFile` function, read `data.txt` line by line,  
 and call the `isSafe` function to check whether each line meets the requirements.
-```
+``` C
 int getTestDataFrmFile(){
     int sum  = 0;
     FILE *fp = fopen("data.txt", "r");
@@ -46,7 +46,7 @@ While iterating through the array, if any element at index `i` is greater than t
 or if the absolute difference between them is greater than 3,  
 the line does not meet the condition. Stop the loop and return 0.
 
-```
+``` C
     if(firstGap > 0){
             for (int index = 0; index <= num - 2; index++) {
                 if ((*(array+index) >= *(array + index + 1)) || (abs(*(array+index) - *(array + index + 1)) > 3)){
@@ -68,7 +68,7 @@ If `firstGap < 0`, check whether the rest of the array is strictly decreasing.
 While iterating through the array, if any element at index `i+1` is greater than the element at index `i`,  
 or if the absolute difference between them is greater than 3,  
 the line does not meet the condition. Stop the loop and return 0.
-```
+``` C
 if(firstGap < 0){
         for (int index = 0; index <= num - 2; index++) {
             if ((*(array+index) <= *(array + index + 1)) || (abs(*(array+index) - *(array + index + 1)) > 3)) {

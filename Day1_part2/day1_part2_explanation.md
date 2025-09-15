@@ -1,0 +1,28 @@
+# Step-by-Step Explanation
+
+## 1. Save Parameters
+Save the parameters into a `data.txt` file for later testing.
+
+---
+
+## 2. Read Data
+Read the data from `data.txt`, split the values by spaces,  
+and store them into two arrays: `fst` and `snd`.
+
+---
+
+## 3. Process Each Element of fst
+Iterate through the `fst` array, passing each element as a parameter to the function `individualValue`.
+
+---
+
+## 4. Compute Individual Value
+Inside `individualValue`, iterate through the `snd` array based on the passed parameter.  
+Count the number of elements in `snd` that are equal to the passed parameter,  
+and return the product of this count and the parameter value.
+
+---
+
+## 5. Accumulate Results
+Process all elements in `fst` according to step 4,  
+and accumulate all the results to obtain the final outcome.
