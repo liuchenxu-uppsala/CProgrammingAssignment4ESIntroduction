@@ -1,0 +1,29 @@
+# Step-by-Step Explanation
+
+## 1. Save Parameters
+Save the parameters into a `data.txt` file for later testing.
+
+---
+
+## 2. Read Data
+Read the data from `data.txt`, split the values by spaces,  
+and store them into two arrays: `fst` and `snd`.
+
+---
+
+## 3. Sort Data
+Call the `quickSort` function twice with `fst` and `snd` as parameters.  
+Use bubble sort to sort both arrays individually.  
+After sorting, both arrays are arranged in ascending order.
+
+---
+
+## 4. Compute Distance
+Call the `distance` function.  
+Assuming both arrays have the same length,  
+iterate through the arrays and sum the absolute differences of the corresponding elements.
+
+---
+
+## 5. Get Result
+Output the final computed result.

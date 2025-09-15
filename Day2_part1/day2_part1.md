@@ -1,0 +1,84 @@
+# Step-by-Step Explanation
+
+## 1. Read Data and Call isSafe
+Store the data in `data.txt`.  
+In the `getTestDataFrmFile` function, read `data.txt` line by line,  
+and call the `isSafe` function to check whether each line meets the requirements.
+```
+int getTestDataFrmFile(){
+    int sum  = 0;
+    FILE *fp = fopen("data.txt", "r");
+    if (!fp) {
+        perror("Open file failed");
+    }
+    char line[1024];
+    while (fgets(line, sizeof(line), fp)) {
+        int numbers[100];
+        int n = 0;
+        char *token = strtok(line, " \t\n");
+        while (token != NULL) {
+            numbers[n++] = atoi(token);
+            token = strtok(NULL, " \t\n");
+        }
+        sum += isSafe(numbers, n);
+    }
+    fclose(fp);
+    return sum;
+}
+```
+
+---
+
+## 2. Compute First Gap
+First, compute the difference between the first item and the zeroth item,  
+and assign it to `firstGap`.  
+If `firstGap == 0`, the line does not meet the condition and `isSafe` returns 0.
+
+---
+
+## 3. Check for Increasing Sequence
+If `firstGap > 0`, check whether the rest of the array is strictly increasing.
+
+---
+
+## 4. Validate Increasing Sequence
+While iterating through the array, if any element at index `i` is greater than the element at index `i+1`,  
+or if the absolute difference between them is greater than 3,  
+the line does not meet the condition. Stop the loop and return 0.
+
+```
+    if(firstGap > 0){
+            for (int index = 0; index <= num - 2; index++) {
+                if ((*(array+index) >= *(array + index + 1)) || (abs(*(array+index) - *(array + index + 1)) > 3)){
+                    flag = 0;
+                    break;
+                }
+            }
+        }
+```
+
+---
+
+## 5. Check for Decreasing Sequence
+If `firstGap < 0`, check whether the rest of the array is strictly decreasing.
+
+---
+
+## 6. Validate Decreasing Sequence
+While iterating through the array, if any element at index `i+1` is greater than the element at index `i`,  
+or if the absolute difference between them is greater than 3,  
+the line does not meet the condition. Stop the loop and return 0.
+```
+if(firstGap < 0){
+        for (int index = 0; index <= num - 2; index++) {
+            if ((*(array+index) <= *(array + index + 1)) || (abs(*(array+index) - *(array + index + 1)) > 3)) {
+                flag = 0;
+                break;
+            }
+        }
+    }
+```
+---
+
+## 7. Accumulate Results
+Sum all the values returned by `isSafe` to obtain the total number of lines that meet the conditions.
