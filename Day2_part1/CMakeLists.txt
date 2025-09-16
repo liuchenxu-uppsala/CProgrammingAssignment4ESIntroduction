@@ -3,4 +3,4 @@ project(Day2part1 C)
 
 set(CMAKE_C_STANDARD 99)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR})
-add_executable(Day2part1 main.c)
+add_executable(Day2part1 Day2_part1.c)
